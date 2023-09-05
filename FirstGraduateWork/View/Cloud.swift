@@ -1,8 +1,8 @@
 //
 //  Cloud.swift
-//  FirstGraduateWork
+//  AliensInvasion
 //
-//  Created by Кирилл Демьянцев on 28.07.2023.
+//  Created by Борис Кравченко on 05.09.2023.
 //
 
 import UIKit

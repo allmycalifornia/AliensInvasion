@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>745193624507-b5m3lamrghujj394jnug7n4h5q5q6tb8.apps.googleusercontent.com</string>
+	<string>737210999948-hskjq9qaki0l9ekc8cvupqji4tav6586.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.745193624507-b5m3lamrghujj394jnug7n4h5q5q6tb8</string>
+	<string>com.googleusercontent.apps.737210999948-hskjq9qaki0l9ekc8cvupqji4tav6586</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCS1wv-t1BXkRBGgSFshk2UFj5wRqDR6C4</string>
+	<string>AIzaSyDuiT4wMNxFyBbPRIY1jorGnEG8iG9TSuU</string>
 	<key>GCM_SENDER_ID</key>
-	<string>745193624507</string>
+	<string>737210999948</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>Kirill-Demyantcev.FirstGraduateWork</string>
+	<string>com.allmycalifornia.AliensInvasion</string>
 	<key>PROJECT_ID</key>
-	<string>crashlyticsaircraft</string>
+	<string>aliensinvasion-4dd4b</string>
 	<key>STORAGE_BUCKET</key>
-	<string>crashlyticsaircraft.appspot.com</string>
+	<string>aliensinvasion-4dd4b.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:745193624507:ios:23eb424e388af48f7f2a9e</string>
+	<string>1:737210999948:ios:c533d4914f18c5402f87a9</string>
 </dict>
 </plist>
