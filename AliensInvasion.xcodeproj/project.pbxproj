@@ -34,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		8E95D6692AA74A6600D2A9C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8EA523BA2AA75E5B00B378A1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB10F1E62A5D9E2C00E1F609 /* CustomClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClass.swift; sourceTree = "<group>"; };
 		EB13336B2A543AB70072F97A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EB13336F2A5441450072F97A /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +47,6 @@
 		EB99DF322A3AE9F800D34147 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		EB99DF372A3AE9F900D34147 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB99DF3A2A3AE9F900D34147 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		EB99DF3C2A3AE9F900D34147 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB99DF442A3AF1F400D34147 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		EB99DF922A3B562100D34147 /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
 		EBADF9E22A73AA5D00C00378 /* AlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertAction.swift; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 				EBEECD622A60501500B58B20 /* CustomCell */,
 				EB99DF372A3AE9F900D34147 /* Assets.xcassets */,
 				EB99DF392A3AE9F900D34147 /* LaunchScreen.storyboard */,
-				EB99DF3C2A3AE9F900D34147 /* Info.plist */,
+				8EA523BA2AA75E5B00B378A1 /* Info.plist */,
 				8E95D6692AA74A6600D2A9C1 /* GoogleService-Info.plist */,
 			);
 			path = FirstGraduateWork;

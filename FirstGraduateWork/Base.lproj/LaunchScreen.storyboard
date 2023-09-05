@@ -19,6 +19,9 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchscreen" translatesAutoresizingMaskIntoConstraints="NO" id="wfp-28-Dck">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                </accessibility>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ALIENS INVASION" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RbF-iH-70N">
                                 <rect key="frame" x="40" y="666" width="313" height="52"/>
@@ -48,7 +51,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launchscreen" width="768" height="1408"/>
+        <image name="launchscreen" width="733" height="1339"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
