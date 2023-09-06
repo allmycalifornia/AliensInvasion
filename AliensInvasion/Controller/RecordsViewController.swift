@@ -71,10 +71,9 @@ final class RecordsViewController: UIViewController {
     }
     //MARK: - Настройка background TableView
     private func backgroundTableView() {
-        let image = UIImage(named: ImageName.cosmos.rawValue)
+        let image = UIImage(named: ImageName.universe.rawValue)
             let imageView = UIImageView(image: image)
             tableView.backgroundView = imageView
-            imageView.alpha = 0.9
     }
     //MARK: - Загрузка и сортировка рекордов
     private func loadRecords() {

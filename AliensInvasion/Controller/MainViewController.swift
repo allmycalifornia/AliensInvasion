@@ -27,14 +27,43 @@ final class MainViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    let labelStart: UILabel = {
+        var label = UILabel()
+        label.text = "Start the game"
+        label.font = UIFont(name: ImageName.labelGameStyle.rawValue,
+                            size: 25)
+        label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let labelSettings: UILabel = {
+        var label = UILabel()
+        label.text = "Settings"
+        label.font = UIFont(name: ImageName.labelGameStyle.rawValue,
+                            size: 25)
+        label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let labelResults: UILabel = {
+        var label = UILabel()
+        label.text = "Results table"
+        label.font = UIFont(name: ImageName.labelGameStyle.rawValue,
+                            size: 25)
+        label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
 
     lazy var entryGameButton: UIButton = {
        var button = UIButton()
         let largeConfig = UIImage.SymbolConfiguration(pointSize: SizeElement.sizeEntryButton.rawValue,
                                                       weight: .medium,
                                                       scale: .large)
-        let largeBoldDoc = UIImage(systemName: ImageName.entryButtonImage.rawValue,
-                                   withConfiguration: largeConfig)
+        let largeBoldDoc = UIImage(named: ImageName.entryButtonImage.rawValue)
         button.setImage(largeBoldDoc, for: .normal)
         button.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -47,8 +76,7 @@ final class MainViewController: UIViewController {
         let largeConfig = UIImage.SymbolConfiguration(pointSize: SizeElement.sizeSetupButton.rawValue,
                                                       weight: .medium,
                                                       scale: .large)
-        let largeBoldDoc = UIImage(systemName: ImageName.setupButtonImage.rawValue,
-                                   withConfiguration: largeConfig)
+        let largeBoldDoc = UIImage(named: ImageName.setupButtonImage.rawValue)
         button.setImage(largeBoldDoc, for: .normal)
         button.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -61,8 +89,7 @@ final class MainViewController: UIViewController {
         let largeConfig = UIImage.SymbolConfiguration(pointSize: SizeElement.sizeSetupButton.rawValue,
                                                       weight: .medium,
                                                       scale: .large)
-        let largeBoldDoc = UIImage(systemName: ImageName.recordTableImage.rawValue,
-                                   withConfiguration: largeConfig)
+        let largeBoldDoc = UIImage(named: ImageName.recordTableImage.rawValue)
         button.setImage(largeBoldDoc, for: .normal)
         button.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -93,9 +120,13 @@ final class MainViewController: UIViewController {
     //MARK: - Сonstraints
     private func setupConstraints() {
         
-        [labelGame, entryGameButton, setupGameButton, recordTableViewButton].forEach {
+        [labelGame, labelStart, labelSettings, labelResults, entryGameButton, setupGameButton, recordTableViewButton].forEach {
             view.addSubview($0)
         }
+        
+        let size: CGFloat = 75
+        let inset: CGFloat = 8
+        let insetElement: CGFloat = 75
         
         NSLayoutConstraint.activate([
             
@@ -103,13 +134,28 @@ final class MainViewController: UIViewController {
             labelGame.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             entryGameButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            entryGameButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            entryGameButton.bottomAnchor.constraint(equalTo: setupGameButton.topAnchor, constant: -insetElement),
+            entryGameButton.widthAnchor.constraint(equalToConstant: size),
+            entryGameButton.heightAnchor.constraint(equalToConstant: size),
             
-            setupGameButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            setupGameButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SizeElement.sizeSetupButton.rawValue),
+            labelStart.topAnchor.constraint(equalTo: entryGameButton.bottomAnchor, constant: inset),
+            labelStart.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            recordTableViewButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            recordTableViewButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SizeElement.sizeSetupButton.rawValue)
+            setupGameButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            setupGameButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            setupGameButton.widthAnchor.constraint(equalToConstant: size),
+            setupGameButton.heightAnchor.constraint(equalToConstant: size),
+            
+            labelSettings.topAnchor.constraint(equalTo: setupGameButton.bottomAnchor, constant: inset),
+            labelSettings.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            recordTableViewButton.topAnchor.constraint(equalTo: setupGameButton.bottomAnchor, constant: insetElement),
+            recordTableViewButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            recordTableViewButton.widthAnchor.constraint(equalToConstant: size),
+            recordTableViewButton.heightAnchor.constraint(equalToConstant: size),
+            
+            labelResults.topAnchor.constraint(equalTo: recordTableViewButton.bottomAnchor, constant: inset),
+            labelResults.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
 }

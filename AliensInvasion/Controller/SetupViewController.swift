@@ -24,7 +24,7 @@ final class SetupViewController: UIViewController {
     private enum StepperValue {
         static let minimumValue: CGFloat = 1
         static let maximumValue: CGFloat = 10
-        static let stepValue: CGFloat = 0.5
+        static let stepValue: CGFloat = 1
         static let value: CGFloat = 5
     }
     
@@ -59,7 +59,7 @@ final class SetupViewController: UIViewController {
         label.text = TextLabel.nameText
         label.font = UIFont(name: ImageName.labelGameStyle.rawValue,
                             size: SizeElement.labelFont.rawValue)
-        label.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -110,7 +110,7 @@ final class SetupViewController: UIViewController {
         label.text = TextLabel.speedAircraftText
         label.font = UIFont(name: ImageName.labelGameStyle.rawValue,
                             size: SizeElement.labelFont.rawValue)
-        label.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -119,7 +119,7 @@ final class SetupViewController: UIViewController {
         var label = UILabel()
         label.font = UIFont(name: ImageName.labelGameStyle.rawValue,
                             size: SizeElement.labelFont.rawValue)
-        label.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

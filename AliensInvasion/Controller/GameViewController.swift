@@ -133,14 +133,14 @@ final class GameViewController: UIViewController {
     
     //MARK: - Настройка Boards
     func setupBackgroundBoard() {
-        let backgroundLeftBoardUp = UIImageView(image: UIImage(named: ImageName.cosmo.rawValue))
+        let backgroundLeftBoardUp = UIImageView(image: UIImage(named: ImageName.galaxy.rawValue))
         backgroundLeftBoardUp.frame = CGRect(x: view.frame.origin.x,
                                              y: 0,
                                              width: leftBoard.bounds.width,
                                              height: view.frame.height)
         leftBoard.addSubview(backgroundLeftBoardUp)
         
-        let backgroundLeftBoardDown = UIImageView(image: UIImage(named: ImageName.cosmo.rawValue))
+        let backgroundLeftBoardDown = UIImageView(image: UIImage(named: ImageName.galaxy.rawValue))
         backgroundLeftBoardDown.frame = CGRect(x: view.frame.origin.x,
                                                y: -view.frame.size.height,
                                                width: leftBoard.bounds.width,
@@ -148,14 +148,14 @@ final class GameViewController: UIViewController {
         leftBoard.addSubview(backgroundLeftBoardDown)
         animateBoards(firstImage: backgroundLeftBoardUp, secondImage: backgroundLeftBoardDown)
         
-        let backgroundRightBoardUp = UIImageView(image: UIImage(named: ImageName.cosmo.rawValue))
+        let backgroundRightBoardUp = UIImageView(image: UIImage(named: ImageName.galaxy.rawValue))
         backgroundRightBoardUp.frame = CGRect(x: view.frame.origin.x,
                                               y: 0,
                                               width: rightBoard.bounds.width,
                                               height: view.frame.height)
         rightBoard.addSubview(backgroundRightBoardUp)
         
-        let backgroundRightBoardDown = UIImageView(image: UIImage(named: ImageName.cosmo.rawValue))
+        let backgroundRightBoardDown = UIImageView(image: UIImage(named: ImageName.galaxy.rawValue))
         backgroundRightBoardDown.frame = CGRect(x: view.frame.origin.x,
                                                 y: -view.frame.size.height,
                                                 width: rightBoard.bounds.width,
@@ -316,7 +316,7 @@ final class GameViewController: UIViewController {
         for ufo in ufoFrameArray {
             guard let ufo = ufo else { return }
             if aircraft.frame.intersects(ufo) {
-                aircraft.image = UIImage(named:ImageName.boom.rawValue)
+                aircraft.image = UIImage(named:ImageName.explosion.rawValue)
                 animator.stopAnimation(true)
                 ufoImage.removeFromSuperview()
                 timer.invalidate()

@@ -12,9 +12,9 @@ enum SizeElement: CGFloat {
 }
 
 enum ImageName: String {
-    case entryButtonImage = "power.circle.fill"
-    case setupButtonImage = "gearshape.fill"
-    case recordTableImage = "trophy.circle"
+    case entryButtonImage = "start-button"
+    case setupButtonImage = "settings"
+    case recordTableImage = "results"
     case photoButton = "camera.circle"
     case labelGameStyle = "Papyrus"
     case nameGame = "ALIENS INVASION"
@@ -40,10 +40,9 @@ enum ImageName: String {
     case ufo17 = "Ufo17"
     case ufo18 = "Ufo18"
     case cloud = "Cloud"
-    case boom = "Boom"
-    case space = "Space"
-    case cosmo = "Cosmo"
-    case cosmos = "Cosmos"
+    case explosion = "Explosion"
+    case galaxy = "Galaxy"
+    case universe = "Universe"
 }
 
 
