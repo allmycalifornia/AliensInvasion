@@ -11,7 +11,7 @@ final class SetupViewController: UIViewController {
     
     //MARK: - Константы
     private enum PhotoSize {
-        static let photoImageSize: CGFloat = 200
+        static let photoImageSize: CGFloat = 150
         static let cornerRadiusPhoto: CGFloat = photoImageSize / 2
     }
     private enum ButtonSize {
@@ -22,14 +22,14 @@ final class SetupViewController: UIViewController {
     }
     
     private enum StepperValue {
-        static let minimumValue: CGFloat = 0
+        static let minimumValue: CGFloat = 1
         static let maximumValue: CGFloat = 10
         static let stepValue: CGFloat = 0.5
         static let value: CGFloat = 5
     }
     
     private enum TextLabel {
-        static let nameText: String = "Ваше имя"
+        static let nameText: String = "Введите имя"
         static let aircraftText: String = "Выберите самолет"
         static let avatarText: String = "Аватар"
         static let speedAircraftText: String = "Скорость самолета"
@@ -41,7 +41,7 @@ final class SetupViewController: UIViewController {
     private let stepperSize: CGFloat = 100
     private let indentConstant: CGFloat = 15
     private let heightTextFieldConstant: CGFloat = 40
-    private let color = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+    private let color = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     
     private var imageFrame: CGRect!
     private var scrollViewFrame: CGRect!

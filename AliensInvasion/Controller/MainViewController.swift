@@ -10,9 +10,9 @@ import UIKit
 final class MainViewController: UIViewController {
     
     private enum SizeElement: CGFloat {
-        case labelFont = 45
+        case labelFont = 30
         case sizeEntryButton = 60
-        case sizeSetupButton = 30
+        case sizeSetupButton = 32
     }
 
     let setupController = SetupViewController()
@@ -23,7 +23,7 @@ final class MainViewController: UIViewController {
         label.text = ImageName.nameGame.rawValue
         label.font = UIFont(name: ImageName.labelGameStyle.rawValue,
                             size: SizeElement.labelFont.rawValue)
-        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -36,7 +36,7 @@ final class MainViewController: UIViewController {
         let largeBoldDoc = UIImage(systemName: ImageName.entryButtonImage.rawValue,
                                    withConfiguration: largeConfig)
         button.setImage(largeBoldDoc, for: .normal)
-        button.tintColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+        button.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(tapEntryGame), for: .touchUpInside)
         return button
@@ -50,7 +50,7 @@ final class MainViewController: UIViewController {
         let largeBoldDoc = UIImage(systemName: ImageName.setupButtonImage.rawValue,
                                    withConfiguration: largeConfig)
         button.setImage(largeBoldDoc, for: .normal)
-        button.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        button.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(tapSetupGame), for: .touchUpInside)
         return button
@@ -64,7 +64,7 @@ final class MainViewController: UIViewController {
         let largeBoldDoc = UIImage(systemName: ImageName.recordTableImage.rawValue,
                                    withConfiguration: largeConfig)
         button.setImage(largeBoldDoc, for: .normal)
-        button.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        button.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(tapRecordGame), for: .touchUpInside)
         return button

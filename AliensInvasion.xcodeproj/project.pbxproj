@@ -93,7 +93,7 @@
 		EB99DF222A3AE9F800D34147 = {
 			isa = PBXGroup;
 			children = (
-				EB99DF2D2A3AE9F800D34147 /* FirstGraduateWork */,
+				EB99DF2D2A3AE9F800D34147 /* AliensInvasion */,
 				EB99DF2C2A3AE9F800D34147 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -106,7 +106,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EB99DF2D2A3AE9F800D34147 /* FirstGraduateWork */ = {
+		EB99DF2D2A3AE9F800D34147 /* AliensInvasion */ = {
 			isa = PBXGroup;
 			children = (
 				EB99DF2E2A3AE9F800D34147 /* AppDelegate.swift */,
@@ -122,7 +122,7 @@
 				8EA523BA2AA75E5B00B378A1 /* Info.plist */,
 				8E95D6692AA74A6600D2A9C1 /* GoogleService-Info.plist */,
 			);
-			path = FirstGraduateWork;
+			path = AliensInvasion;
 			sourceTree = "<group>";
 		};
 		EB99DF462A3AF1F900D34147 /* Helper */ = {
@@ -422,7 +422,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JVA85S2MQ8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FirstGraduateWork/Info.plist;
+				INFOPLIST_FILE = AliensInvasion/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Aliens Invasion";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.arcade-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -455,7 +455,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JVA85S2MQ8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FirstGraduateWork/Info.plist;
+				INFOPLIST_FILE = AliensInvasion/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Aliens Invasion";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.arcade-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

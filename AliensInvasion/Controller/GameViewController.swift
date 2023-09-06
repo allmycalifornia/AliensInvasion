@@ -42,10 +42,24 @@ final class GameViewController: UIViewController {
         CGFloat.random(in: leftBoard.frame.maxX...rightBoard.frame.minX - sizeUfo.width)
     }
     
-    private let ufoArray: [String] = [ImageName.ufoOne.rawValue,
-                                      ImageName.ufoTwo.rawValue,
-                                      ImageName.ufoThree.rawValue,
-                                      ImageName.ufoFour.rawValue]
+    private let ufoArray: [String] = [ImageName.ufo1.rawValue,
+                                      ImageName.ufo2.rawValue,
+                                      ImageName.ufo3.rawValue,
+                                      ImageName.ufo4.rawValue,
+                                      ImageName.ufo5.rawValue,
+                                      ImageName.ufo6.rawValue,
+                                      ImageName.ufo7.rawValue,
+                                      ImageName.ufo8.rawValue,
+                                      ImageName.ufo9.rawValue,
+                                      ImageName.ufo10.rawValue,
+                                      ImageName.ufo11.rawValue,
+                                      ImageName.ufo12.rawValue,
+                                      ImageName.ufo13.rawValue,
+                                      ImageName.ufo14.rawValue,
+                                      ImageName.ufo15.rawValue,
+                                      ImageName.ufo16.rawValue,
+                                      ImageName.ufo17.rawValue,
+                                      ImageName.ufo18.rawValue]
     
     override func viewDidLoad() {
         super.viewDidLoad()
