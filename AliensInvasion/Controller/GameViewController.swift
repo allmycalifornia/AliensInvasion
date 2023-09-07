@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import AVFoundation
 
 final class GameViewController: UIViewController {
+    
+    var audioPlayer: AVAudioPlayer?
     
     //MARK: - Константы
     private let sizeUfo = CGSize(width: 50, height: 50)
@@ -70,6 +73,16 @@ final class GameViewController: UIViewController {
         addPanGesture(aircraft: aircraft)
         setupScoreCounter()
         addTapPauseGame(label: scoreCounter)
+        
+        guard let url = Bundle.main.url(forResource: "ArkanoidTheme", withExtension: "mp3") else {
+                    return
+                }
+                
+                do {
+                    audioPlayer = try AVAudioPlayer(contentsOf: url)
+                } catch {
+                    print("Ошибка при создании экземпляра AVAudioPlayer: \(error)")
+                }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,6 +96,21 @@ final class GameViewController: UIViewController {
                                 userInfo: nil,
                                 repeats: true)
     }
+    
+    // запуск музыки при начале игры
+    override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+            
+            audioPlayer?.play()
+        }
+
+    // остановка музыки при выходе в меню
+    override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+            
+            audioPlayer?.stop()
+        }
+
     
     //MARK: - Загрузка данных из UserDefaults
     
@@ -189,7 +217,7 @@ final class GameViewController: UIViewController {
     //MARK: - Настройка левого, центрального, правого борта
     private func setupBoardView() {
         
-        let widthSize: CGFloat = 120
+        let widthSize: CGFloat = 150
         let boardSize = CGSize(width: view.bounds.width / 2 - widthSize,
                                height: view.bounds.height)
         let centralBoardSize = CGSize(width: view.bounds.width - boardSize.width * 2,
@@ -242,7 +270,7 @@ final class GameViewController: UIViewController {
             ufoImage.frame.origin.y += view.bounds.height
         },
                                             completion: { [self] _ in
-            score += 1
+            score += 5
             scoreCounter.text = String(score)
             ufoImage.frame.origin.x = randomXCoordinate
             ufoImage.frame.origin.y = 0
@@ -273,7 +301,7 @@ final class GameViewController: UIViewController {
                                        width: sizeScoreCounter.width,
                                        height: sizeScoreCounter.height)
         scoreCounter = UILabel(frame: frameScoreCounter)
-        scoreCounter.textColor = .red
+        scoreCounter.textColor = .white
         scoreCounter.textAlignment = .center
         scoreCounter.text = "0"
         scoreCounter.font = UIFont(name: ImageName.labelGameStyle.rawValue,

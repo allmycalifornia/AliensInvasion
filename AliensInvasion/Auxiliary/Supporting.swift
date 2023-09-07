@@ -1,5 +1,5 @@
 //
-//  Helper.swift
+//  Supporting.swift
 //  AliensInvasion
 //
 //  Created by Борис Кравченко on 05.09.2023.
@@ -15,7 +15,6 @@ enum ImageName: String {
     case entryButtonImage = "start-button"
     case setupButtonImage = "settings"
     case recordTableImage = "results"
-    case photoButton = "camera.circle"
     case labelGameStyle = "Papyrus"
     case nameGame = "ALIENS INVASION"
     case firstAircraft = "AircraftOne"
@@ -46,4 +45,9 @@ enum ImageName: String {
     case background = "starsky"
 }
 
-
+enum Keys: String {
+    case aircraftKey
+    case imageKey
+    case customKey
+    case recordKey
+}

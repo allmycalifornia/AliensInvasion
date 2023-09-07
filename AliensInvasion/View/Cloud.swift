@@ -10,7 +10,7 @@ import UIKit
 class Cloud: UIImageView {
     
     let sizeCloud = CGSize(width: 60, height: 60)
-    let cloudScore: Int = 10
+    let cloudScore: Int = 5
     
     func cloudAnimate(_ view: UIView, randomCoordinate: CGFloat) {
         UIView.animate(withDuration: 5,

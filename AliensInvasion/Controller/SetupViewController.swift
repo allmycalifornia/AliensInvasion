@@ -21,7 +21,7 @@ final class SetupViewController: UIViewController {
     private enum StepperValue {
         static let minimumValue: CGFloat = 1
         static let maximumValue: CGFloat = 10
-        static let stepValue: CGFloat = 1
+        static let stepValue: CGFloat = 0.5
         static let value: CGFloat = 5
     }
     
