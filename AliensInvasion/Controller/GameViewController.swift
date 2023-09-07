@@ -299,7 +299,7 @@ final class GameViewController: UIViewController {
         customAlert.pauseAlert(self, animation: animator)
     }
     
-    //MARK: - Проверка пересечения самолета с нло
+    //MARK: - Проверка пересечения истребителя с НЛО
     @objc func ufoIntersects() {
         
         let dynamicUfoFrame = ufoImage.layer.presentation()?.frame

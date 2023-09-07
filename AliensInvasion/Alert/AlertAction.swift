@@ -57,14 +57,14 @@ final class AlertAction {
             if textField?.text != "" {
                 name.text = textField?.text
             } else {
-                name.text = "Your name"
+                name.text = "Enter your name"
             }
             if (textField?.text!.count)! >= maxWordCount {
                 name.text = ""
             }
         }
         alertController.addTextField { name in
-            name.placeholder = "Name"
+            name.placeholder = "Your name"
         }
         
         let cancelAlertAction = UIAlertAction(title: "Cancel", style: .default) {_ in

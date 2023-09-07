@@ -10,15 +10,12 @@ import UIKit
 final class SetupViewController: UIViewController {
     
     //MARK: - Константы
-    private enum PhotoSize {
-        static let photoImageSize: CGFloat = 150
-        static let cornerRadiusPhoto: CGFloat = photoImageSize / 2
-    }
+    
     private enum ButtonSize {
         static let buttonWidth: CGFloat = 150
         static let buttonHeight: CGFloat = 50
         static let cornerRadiusButton: CGFloat = 10
-        static let buttonFontSize: CGFloat = 20
+        static let buttonFontSize: CGFloat = 40
     }
     
     private enum StepperValue {
@@ -30,8 +27,7 @@ final class SetupViewController: UIViewController {
     
     private enum TextLabel {
         static let nameText: String = "Enter your name"
-        static let aircraftText: String = "Choose a fighter"
-        static let avatarText: String = "Аватар"
+        static let aircraftText: String = "Choose your fighter"
         static let speedAircraftText: String = "Game speed"
         static let saveText: String = "SAVE"
     }
@@ -39,7 +35,10 @@ final class SetupViewController: UIViewController {
     private let scrollSize: CGFloat = 100
     private let aircraftSize: CGFloat = 100
     private let stepperSize: CGFloat = 100
-    private let indentConstant: CGFloat = 15
+    private let inset: CGFloat = 8
+    private let indentConstant: CGFloat = 16
+    private let doubleIndentConstant: CGFloat = 32
+    private let tripleIndentConstant: CGFloat = 48
     private let heightTextFieldConstant: CGFloat = 40
     private let color = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     
@@ -74,34 +73,14 @@ final class SetupViewController: UIViewController {
         return label
     }()
     
-    let setupLabel: UILabel = {
+    let fighterChooseLabel: UILabel = {
         var label = UILabel()
         label.text = TextLabel.aircraftText
         label.font = UIFont(name: ImageName.labelGameStyle.rawValue,
                             size: SizeElement.labelFont.rawValue)
-        label.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-    }()
-    
-    let photoLabel: UILabel = {
-        var label = UILabel()
-        label.text = TextLabel.avatarText
-        label.font = UIFont(name: ImageName.labelGameStyle.rawValue,
-                            size: SizeElement.labelFont.rawValue)
-        label.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    var photoImage: UIImageView = {
-        var image = UIImageView()
-        image.image = UIImage(systemName: ImageName.photoButton.rawValue)
-        image.tintColor = .black
-        image.layer.cornerRadius = PhotoSize.cornerRadiusPhoto
-        image.layer.masksToBounds = true
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
     }()
     
     lazy var stepper: UIStepper = {
@@ -152,7 +131,6 @@ final class SetupViewController: UIViewController {
         setupConstraints()
         setupScrollView()
         setupAircraftMenu()
-        tapGesturePhoto(photoImage)
         tapGestureLabelName(nameLabel)
         loadUserDefaults()
     }
@@ -160,15 +138,13 @@ final class SetupViewController: UIViewController {
     //MARK: - Загрузка из UserDefaults
     
     private func loadUserDefaults() {
-        let loadPhoto = UserDefaults.standard.object(forKey: Keys.imageKey.rawValue) as? String
+        //let loadPhoto = UserDefaults.standard.object(forKey: Keys.imageKey.rawValue) as? String
         let result = UserDefaults.standard.value(CustomClass.self, forKey: Keys.customKey.rawValue)
         guard let result = result else { return }
         nameLabel.text = result.name
         myScroll.contentOffset.x = result.scroll
         stepperValueLabel.text = result.loadValue
         stepper.value = result.loadStepper
-        photoImage.image = loadImage(fileName: loadPhoto ?? ImageName.cloud.rawValue)
-        
     }
     
     private func setupScrollView() {
@@ -181,11 +157,6 @@ final class SetupViewController: UIViewController {
     
     //MARK: - Gesture
     
-    private func tapGesturePhoto(_ photo: UIImageView) {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapPhoto))
-        photo.isUserInteractionEnabled = true
-        photo.addGestureRecognizer(tapGesture)
-    }
     private func tapGestureLabelName(_ name: UILabel) {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapLabel))
         name.isUserInteractionEnabled = true
@@ -196,16 +167,8 @@ final class SetupViewController: UIViewController {
         stepperValueLabel.text = "\(sender.value)"
     }
     
-    @objc func tapPhoto() {
-        let vc = UIImagePickerController()
-        vc.sourceType = .photoLibrary
-        vc.delegate = self
-        vc.allowsEditing = true
-        present(vc, animated: true)
-    }
     
     @objc func tapLabel() {
-        
         nameAlert.nameAlert(self, name: nameLabel)
     }
     
@@ -273,7 +236,7 @@ final class SetupViewController: UIViewController {
     //MARK: - Сonstraints
     func setupConstraints() {
         
-        [backgroundView, setupLabel, photoLabel, photoImage, nameLabel, stepper, myScroll, speedLabel, stepperValueLabel, saveButton].forEach {
+        [backgroundView, fighterChooseLabel, nameLabel, stepper, myScroll, speedLabel, stepperValueLabel, saveButton].forEach {
             view.addSubview($0)
         }
         
@@ -283,30 +246,22 @@ final class SetupViewController: UIViewController {
             backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: indentConstant),
+            nameLabel.bottomAnchor.constraint(equalTo: fighterChooseLabel.topAnchor, constant: -tripleIndentConstant),
             nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             nameLabel.heightAnchor.constraint(equalToConstant: heightTextFieldConstant),
             
-            photoLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: indentConstant),
-            photoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            fighterChooseLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            fighterChooseLabel.bottomAnchor.constraint(equalTo: myScroll.topAnchor),
             
-            photoImage.topAnchor.constraint(equalTo: photoLabel.bottomAnchor),
-            photoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            photoImage.heightAnchor.constraint(equalToConstant: PhotoSize.photoImageSize),
-            photoImage.widthAnchor.constraint(equalToConstant: PhotoSize.photoImageSize),
-            
-            setupLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            setupLabel.topAnchor.constraint(equalTo: photoImage.bottomAnchor),
-            
-            myScroll.topAnchor.constraint(equalTo: setupLabel.bottomAnchor, constant: indentConstant),
             myScroll.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            myScroll.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             myScroll.heightAnchor.constraint(equalToConstant: scrollSize),
             myScroll.widthAnchor.constraint(equalToConstant: scrollSize),
             
-            speedLabel.topAnchor.constraint(equalTo: myScroll.bottomAnchor, constant: indentConstant),
+            speedLabel.topAnchor.constraint(equalTo: myScroll.bottomAnchor, constant: doubleIndentConstant),
             speedLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            stepper.topAnchor.constraint(equalTo: speedLabel.bottomAnchor, constant: indentConstant),
+            stepper.topAnchor.constraint(equalTo: speedLabel.bottomAnchor, constant: inset),
             stepper.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stepper.widthAnchor.constraint(equalToConstant: stepperSize),
             
@@ -318,20 +273,5 @@ final class SetupViewController: UIViewController {
             saveButton.heightAnchor.constraint(equalToConstant: ButtonSize.buttonHeight),
             saveButton.widthAnchor.constraint(equalToConstant: ButtonSize.buttonWidth)
         ])
-    }
-}
-extension SetupViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let pickedImage = info[.editedImage] as? UIImage {
-            let name = saveImage(image: pickedImage)
-            photoImage.image = pickedImage
-            UserDefaults.standard.set(name, forKey: Keys.imageKey.rawValue)
-        }
-        picker.dismiss(animated: true)
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true)
     }
 }

@@ -204,7 +204,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EB99DF262A3AE9F800D34147 /* Build configuration list for PBXProject "AliensInvasion" */;
+			buildConfigurationList = EB99DF262A3AE9F800D34147 /* Build configuration list for PBXProject "Aliens-Invasion" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -482,7 +482,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EB99DF262A3AE9F800D34147 /* Build configuration list for PBXProject "AliensInvasion" */ = {
+		EB99DF262A3AE9F800D34147 /* Build configuration list for PBXProject "Aliens-Invasion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EB99DF3D2A3AE9F900D34147 /* Debug */,
