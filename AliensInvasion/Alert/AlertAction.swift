@@ -15,8 +15,8 @@ final class AlertAction {
         
         var scoreResult:[Int] = []
         
-        let alertController = UIAlertController(title: "Game over!",
-                                                message: "Ваш счет \(score)!",
+        let alertController = UIAlertController(title: "GAME OVER!",
+                                                message: "Your score \(score)!",
                                                 preferredStyle: .alert)
         let alertOkAction = UIAlertAction(title: "Ok",
                                           style: .default) { _ in
@@ -33,15 +33,15 @@ final class AlertAction {
     func pauseAlert(_ view: UIViewController, animation: UIViewPropertyAnimator) {
         animation.pauseAnimation()
         
-        let alertController = UIAlertController(title: "Пауза!",
+        let alertController = UIAlertController(title: "Pause!",
                                                 message: "",
                                                 preferredStyle: .alert)
-        let alertOkAction = UIAlertAction(title: "Продолжить",
+        let alertOkAction = UIAlertAction(title: "Continue",
                                           style: .default) { _ in
             alertController.dismiss(animated: true)
             animation.startAnimation()
         }
-        let alertExitAction = UIAlertAction(title: "Выйти",
+        let alertExitAction = UIAlertAction(title: "Exit",
                                             style: .destructive) { _ in
             view.navigationController?.popViewController(animated: true)
         }
@@ -51,23 +51,23 @@ final class AlertAction {
     }
     
     func nameAlert(_ view: UIViewController, name: UILabel) {
-        let alertController = UIAlertController(title: "", message: "Введите Ваше имя", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "", message: "Enter your name", preferredStyle: .alert)
         let alertOkAction = UIAlertAction(title: "Ok", style: .default) { [self] _ in
             let textField = alertController.textFields?.first
             if textField?.text != "" {
                 name.text = textField?.text
             } else {
-                name.text = "Ваше имя"
+                name.text = "Your name"
             }
             if (textField?.text!.count)! >= maxWordCount {
                 name.text = ""
             }
         }
         alertController.addTextField { name in
-            name.placeholder = "Имя"
+            name.placeholder = "Name"
         }
         
-        let cancelAlertAction = UIAlertAction(title: "Отмена", style: .default) {_ in
+        let cancelAlertAction = UIAlertAction(title: "Cancel", style: .default) {_ in
             alertController.dismiss(animated: true)
         }
         

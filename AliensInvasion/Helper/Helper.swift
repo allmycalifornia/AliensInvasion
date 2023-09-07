@@ -8,7 +8,7 @@
 import Foundation
 
 enum SizeElement: CGFloat {
-    case labelFont = 20
+    case labelFont = 30
 }
 
 enum ImageName: String {
@@ -43,6 +43,7 @@ enum ImageName: String {
     case explosion = "Explosion"
     case galaxy = "Galaxy"
     case universe = "Universe"
+    case background = "starsky"
 }
 
 

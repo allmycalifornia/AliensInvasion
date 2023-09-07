@@ -29,11 +29,11 @@ final class SetupViewController: UIViewController {
     }
     
     private enum TextLabel {
-        static let nameText: String = "Введите имя"
-        static let aircraftText: String = "Выберите самолет"
+        static let nameText: String = "Enter your name"
+        static let aircraftText: String = "Choose a fighter"
         static let avatarText: String = "Аватар"
-        static let speedAircraftText: String = "Скорость самолета"
-        static let saveText: String = "Сохранить"
+        static let speedAircraftText: String = "Game speed"
+        static let saveText: String = "SAVE"
     }
     
     private let scrollSize: CGFloat = 100
@@ -53,6 +53,16 @@ final class SetupViewController: UIViewController {
     //MARK: - UI
     private var myScroll = UIScrollView()
     private let nameAlert = AlertAction()
+    
+    private let backgroundView: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "starsky")
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
+        image.alpha = 0.8
+        return image
+    }()
     
     let nameLabel: UILabel = {
         var label = UILabel()
@@ -102,6 +112,7 @@ final class SetupViewController: UIViewController {
         stepper.value = StepperValue.value
         stepper.translatesAutoresizingMaskIntoConstraints = false
         stepper.addTarget(self, action: #selector(tapStepper), for: .touchUpInside)
+        stepper.backgroundColor = .white
         return stepper
     }()
     
@@ -138,7 +149,6 @@ final class SetupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.gradientBoard()
         setupConstraints()
         setupScrollView()
         setupAircraftMenu()
@@ -263,11 +273,15 @@ final class SetupViewController: UIViewController {
     //MARK: - Сonstraints
     func setupConstraints() {
         
-        [setupLabel, photoLabel, photoImage, nameLabel, stepper, myScroll, speedLabel, stepperValueLabel, saveButton].forEach {
+        [backgroundView, setupLabel, photoLabel, photoImage, nameLabel, stepper, myScroll, speedLabel, stepperValueLabel, saveButton].forEach {
             view.addSubview($0)
         }
         
         NSLayoutConstraint.activate([
+            backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: indentConstant),
             nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),

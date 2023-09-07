@@ -14,7 +14,7 @@ final class RecordsViewController: UIViewController {
     var heightCell: CGFloat = 50
     
     private enum TextLabel {
-        static let recordsText: String = "Рекорды"
+        static let recordsText: String = "Results table"
     }
     
     let titleLabel: UILabel = {
@@ -71,7 +71,7 @@ final class RecordsViewController: UIViewController {
     }
     //MARK: - Настройка background TableView
     private func backgroundTableView() {
-        let image = UIImage(named: ImageName.universe.rawValue)
+        let image = UIImage(named: ImageName.background.rawValue)
             let imageView = UIImageView(image: image)
             tableView.backgroundView = imageView
     }

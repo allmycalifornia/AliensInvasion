@@ -18,6 +18,16 @@ final class MainViewController: UIViewController {
     let setupController = SetupViewController()
     let recordViewController = RecordsViewController()
     
+    private let backgroundView: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "starsky")
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
+        image.alpha = 0.8
+        return image
+    }()
+    
     let labelGame: UILabel = {
         var label = UILabel()
         label.text = ImageName.nameGame.rawValue
@@ -99,8 +109,6 @@ final class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.gradientBoard()
         navigationItem.backButtonTitle = ""
         setupConstraints()
     }
@@ -120,7 +128,7 @@ final class MainViewController: UIViewController {
     //MARK: - Сonstraints
     private func setupConstraints() {
         
-        [labelGame, labelStart, labelSettings, labelResults, entryGameButton, setupGameButton, recordTableViewButton].forEach {
+        [backgroundView, labelGame, labelStart, labelSettings, labelResults, entryGameButton, setupGameButton, recordTableViewButton].forEach {
             view.addSubview($0)
         }
         
@@ -129,6 +137,11 @@ final class MainViewController: UIViewController {
         let insetElement: CGFloat = 75
         
         NSLayoutConstraint.activate([
+            
+            backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             labelGame.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             labelGame.centerXAnchor.constraint(equalTo: view.centerXAnchor),
