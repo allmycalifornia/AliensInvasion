@@ -18,7 +18,7 @@ final class SetupViewController: UIViewController {
         static let buttonFontSize: CGFloat = 40
     }
     
-    private enum StepperValue {
+    private enum SpeedStepperValue {
         static let minimumValue: CGFloat = 1
         static let maximumValue: CGFloat = 10
         static let stepValue: CGFloat = 0.5
@@ -27,7 +27,7 @@ final class SetupViewController: UIViewController {
     
     private enum TextLabel {
         static let nameText: String = "Enter your name"
-        static let aircraftText: String = "Choose your fighter"
+        static let aircraftText: String = "Choose your rocket"
         static let speedAircraftText: String = "Game speed"
         static let saveText: String = "SAVE"
     }
@@ -73,7 +73,7 @@ final class SetupViewController: UIViewController {
         return label
     }()
     
-    let fighterChooseLabel: UILabel = {
+    let rocketChooseLabel: UILabel = {
         var label = UILabel()
         label.text = TextLabel.aircraftText
         label.font = UIFont(name: ImageName.labelGameStyle.rawValue,
@@ -83,12 +83,12 @@ final class SetupViewController: UIViewController {
         return label
     }()
     
-    lazy var stepper: UIStepper = {
+    lazy var speedStepper: UIStepper = {
         var stepper = UIStepper()
-        stepper.minimumValue = StepperValue.minimumValue
-        stepper.maximumValue = StepperValue.maximumValue
-        stepper.stepValue = StepperValue.stepValue
-        stepper.value = StepperValue.value
+        stepper.minimumValue = SpeedStepperValue.minimumValue
+        stepper.maximumValue = SpeedStepperValue.maximumValue
+        stepper.stepValue = SpeedStepperValue.stepValue
+        stepper.value = SpeedStepperValue.value
         stepper.translatesAutoresizingMaskIntoConstraints = false
         stepper.addTarget(self, action: #selector(tapStepper), for: .touchUpInside)
         stepper.backgroundColor = .white
@@ -144,7 +144,7 @@ final class SetupViewController: UIViewController {
         nameLabel.text = result.name
         myScroll.contentOffset.x = result.scroll
         stepperValueLabel.text = result.loadValue
-        stepper.value = result.loadStepper
+        speedStepper.value = result.loadStepper
     }
     
     private func setupScrollView() {
@@ -219,7 +219,7 @@ final class SetupViewController: UIViewController {
     //MARK: - Сохранение настроек
     
     @objc func tapSave(_ sender: UIButton) {
-        let customClass = CustomClass(name: nameLabel.text ?? "", scroll: myScroll.contentOffset.x, loadValue: stepperValueLabel.text ?? "", loadStepper: stepper.value)
+        let customClass = CustomClass(name: nameLabel.text ?? "", scroll: myScroll.contentOffset.x, loadValue: stepperValueLabel.text ?? "", loadStepper: speedStepper.value)
         UserDefaults.standard.set(encodable: customClass, forKey: Keys.customKey.rawValue)
         self.navigationController?.popViewController(animated: true)
     }
@@ -236,7 +236,7 @@ final class SetupViewController: UIViewController {
     //MARK: - Сonstraints
     func setupConstraints() {
         
-        [backgroundView, fighterChooseLabel, nameLabel, stepper, myScroll, speedLabel, stepperValueLabel, saveButton].forEach {
+        [backgroundView, rocketChooseLabel, nameLabel, speedStepper, myScroll, speedLabel, stepperValueLabel, saveButton].forEach {
             view.addSubview($0)
         }
         
@@ -246,12 +246,12 @@ final class SetupViewController: UIViewController {
             backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            nameLabel.bottomAnchor.constraint(equalTo: fighterChooseLabel.topAnchor, constant: -tripleIndentConstant),
+            nameLabel.bottomAnchor.constraint(equalTo: rocketChooseLabel.topAnchor, constant: -tripleIndentConstant),
             nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             nameLabel.heightAnchor.constraint(equalToConstant: heightTextFieldConstant),
             
-            fighterChooseLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            fighterChooseLabel.bottomAnchor.constraint(equalTo: myScroll.topAnchor),
+            rocketChooseLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            rocketChooseLabel.bottomAnchor.constraint(equalTo: myScroll.topAnchor),
             
             myScroll.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             myScroll.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -261,11 +261,11 @@ final class SetupViewController: UIViewController {
             speedLabel.topAnchor.constraint(equalTo: myScroll.bottomAnchor, constant: doubleIndentConstant),
             speedLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            stepper.topAnchor.constraint(equalTo: speedLabel.bottomAnchor, constant: inset),
-            stepper.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stepper.widthAnchor.constraint(equalToConstant: stepperSize),
+            speedStepper.topAnchor.constraint(equalTo: speedLabel.bottomAnchor, constant: inset),
+            speedStepper.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            speedStepper.widthAnchor.constraint(equalToConstant: stepperSize),
             
-            stepperValueLabel.topAnchor.constraint(equalTo: stepper.bottomAnchor, constant: indentConstant),
+            stepperValueLabel.topAnchor.constraint(equalTo: speedStepper.bottomAnchor, constant: indentConstant),
             stepperValueLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             saveButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),

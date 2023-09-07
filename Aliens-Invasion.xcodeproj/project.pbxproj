@@ -61,6 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E55BBB72AA9FDD9001A088D /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				8E55BBB52AA9FC12001A088D /* ArkanoidTheme.mp3 */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
 		EB10F1E82A5DAD5500E1F609 /* CustomClassUserDefaults */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,10 +115,10 @@
 				EB13336E2A543B2C0072F97A /* Controller */,
 				EB10F1E82A5DAD5500E1F609 /* CustomClassUserDefaults */,
 				EBEECD622A60501500B58B20 /* CustomCell */,
+				8E55BBB72AA9FDD9001A088D /* Music */,
 				EB99DF372A3AE9F900D34147 /* Assets.xcassets */,
 				EB99DF392A3AE9F900D34147 /* LaunchScreen.storyboard */,
 				8EA523BA2AA75E5B00B378A1 /* Info.plist */,
-				8E55BBB52AA9FC12001A088D /* ArkanoidTheme.mp3 */,
 			);
 			path = AliensInvasion;
 			sourceTree = "<group>";
