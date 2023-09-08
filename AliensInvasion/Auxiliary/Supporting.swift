@@ -15,6 +15,7 @@ enum ImageName: String {
     case entryButtonImage = "start-button"
     case setupButtonImage = "settings"
     case recordTableImage = "results"
+    case rulesImage = "rules"
     case labelGameStyle = "Papyrus"
     case nameGame = "ALIENS INVASION"
     case firstAircraft = "AircraftOne"

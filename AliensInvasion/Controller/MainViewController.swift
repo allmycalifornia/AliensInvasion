@@ -11,12 +11,13 @@ final class MainViewController: UIViewController {
     
     private enum SizeElement: CGFloat {
         case labelFont = 30
-        case sizeEntryButton = 60
+        case sizeEntryButton = 50
         case sizeSetupButton = 32
     }
 
     let setupController = SetupViewController()
     let recordViewController = RecordsViewController()
+    let rulesViewController = RulesViewController()
     
     private let backgroundView: UIImageView = {
         let image = UIImageView()
@@ -41,8 +42,7 @@ final class MainViewController: UIViewController {
     let labelStart: UILabel = {
         var label = UILabel()
         label.text = "Start the game"
-        label.font = UIFont(name: ImageName.labelGameStyle.rawValue,
-                            size: 25)
+        label.font = UIFont(name: ImageName.labelGameStyle.rawValue, size: 25)
         label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -51,8 +51,7 @@ final class MainViewController: UIViewController {
     let labelSettings: UILabel = {
         var label = UILabel()
         label.text = "Settings"
-        label.font = UIFont(name: ImageName.labelGameStyle.rawValue,
-                            size: 25)
+        label.font = UIFont(name: ImageName.labelGameStyle.rawValue, size: 25)
         label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -61,14 +60,23 @@ final class MainViewController: UIViewController {
     let labelResults: UILabel = {
         var label = UILabel()
         label.text = "Results table"
-        label.font = UIFont(name: ImageName.labelGameStyle.rawValue,
-                            size: 25)
+        label.font = UIFont(name: ImageName.labelGameStyle.rawValue, size: 25)
         label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    let labelRules: UILabel = {
+        var label = UILabel()
+        label.text = "Rules"
+        label.font = UIFont(name: ImageName.labelGameStyle.rawValue, size: 25)
+        label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.isUserInteractionEnabled = true
+        return label
+    }()
 
-    lazy var entryGameButton: UIButton = {
+    lazy var startGameButton: UIButton = {
        var button = UIButton()
         let largeConfig = UIImage.SymbolConfiguration(pointSize: SizeElement.sizeEntryButton.rawValue,
                                                       weight: .medium,
@@ -81,7 +89,7 @@ final class MainViewController: UIViewController {
         return button
     }()
 
-    lazy var setupGameButton: UIButton = {
+    lazy var settingsGameButton: UIButton = {
        var button = UIButton()
         let largeConfig = UIImage.SymbolConfiguration(pointSize: SizeElement.sizeSetupButton.rawValue,
                                                       weight: .medium,
@@ -106,6 +114,19 @@ final class MainViewController: UIViewController {
         button.addTarget(self, action: #selector(tapRecordGame), for: .touchUpInside)
         return button
     }()
+    
+    lazy var rulesButton: UIButton = {
+       var button = UIButton()
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: SizeElement.sizeSetupButton.rawValue,
+                                                      weight: .medium,
+                                                      scale: .large)
+        let largeBoldDoc = UIImage(named: ImageName.rulesImage.rawValue)
+        button.setImage(largeBoldDoc, for: .normal)
+        button.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(tapRulesGame), for: .touchUpInside)
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,16 +146,19 @@ final class MainViewController: UIViewController {
         navigationController?.pushViewController(recordViewController, animated: true)
     }
     
+    @objc private func tapRulesGame() {
+        navigationController?.present(rulesViewController, animated: true)
+    }
+    
     //MARK: - Сonstraints
     private func setupConstraints() {
         
-        [backgroundView, labelGame, labelStart, labelSettings, labelResults, entryGameButton, setupGameButton, recordTableViewButton].forEach {
+        [backgroundView, labelGame, labelStart, labelSettings, labelRules, labelResults, startGameButton, settingsGameButton, recordTableViewButton, rulesButton].forEach {
             view.addSubview($0)
         }
         
-        let size: CGFloat = 75
+        let size: CGFloat = 60
         let inset: CGFloat = 8
-        let insetElement: CGFloat = 75
         
         NSLayoutConstraint.activate([
             
@@ -146,29 +170,37 @@ final class MainViewController: UIViewController {
             labelGame.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             labelGame.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            entryGameButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            entryGameButton.bottomAnchor.constraint(equalTo: setupGameButton.topAnchor, constant: -insetElement),
-            entryGameButton.widthAnchor.constraint(equalToConstant: size),
-            entryGameButton.heightAnchor.constraint(equalToConstant: size),
+            startGameButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            startGameButton.topAnchor.constraint(equalTo: labelGame.bottomAnchor, constant: size),
+            startGameButton.widthAnchor.constraint(equalToConstant: size),
+            startGameButton.heightAnchor.constraint(equalToConstant: size),
             
-            labelStart.topAnchor.constraint(equalTo: entryGameButton.bottomAnchor, constant: inset),
+            labelStart.topAnchor.constraint(equalTo: startGameButton.bottomAnchor, constant: inset),
             labelStart.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            setupGameButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            setupGameButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            setupGameButton.widthAnchor.constraint(equalToConstant: size),
-            setupGameButton.heightAnchor.constraint(equalToConstant: size),
+            settingsGameButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            settingsGameButton.topAnchor.constraint(equalTo: labelStart.bottomAnchor, constant: inset),
+            settingsGameButton.widthAnchor.constraint(equalToConstant: size),
+            settingsGameButton.heightAnchor.constraint(equalToConstant: size),
             
-            labelSettings.topAnchor.constraint(equalTo: setupGameButton.bottomAnchor, constant: inset),
+            labelSettings.topAnchor.constraint(equalTo: settingsGameButton.bottomAnchor, constant: inset),
             labelSettings.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            recordTableViewButton.topAnchor.constraint(equalTo: setupGameButton.bottomAnchor, constant: insetElement),
+            recordTableViewButton.topAnchor.constraint(equalTo: settingsGameButton.bottomAnchor, constant: size),
             recordTableViewButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             recordTableViewButton.widthAnchor.constraint(equalToConstant: size),
             recordTableViewButton.heightAnchor.constraint(equalToConstant: size),
             
             labelResults.topAnchor.constraint(equalTo: recordTableViewButton.bottomAnchor, constant: inset),
-            labelResults.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            labelResults.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            rulesButton.topAnchor.constraint(equalTo: recordTableViewButton.bottomAnchor, constant: size),
+            rulesButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            rulesButton.widthAnchor.constraint(equalToConstant: size),
+            rulesButton.heightAnchor.constraint(equalToConstant: size),
+            
+            labelRules.topAnchor.constraint(equalTo: rulesButton.bottomAnchor, constant: inset),
+            labelRules.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8E55BBB62AA9FC12001A088D /* ArkanoidTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8E55BBB52AA9FC12001A088D /* ArkanoidTheme.mp3 */; };
+		8E771A9D2AAB034800D905B5 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E771A9C2AAB034800D905B5 /* RulesViewController.swift */; };
 		EB10F1E72A5D9E2C00E1F609 /* CustomClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10F1E62A5D9E2C00E1F609 /* CustomClass.swift */; };
 		EB13336C2A543AB70072F97A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13336B2A543AB70072F97A /* MainViewController.swift */; };
 		EB1333702A5441450072F97A /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13336F2A5441450072F97A /* SetupViewController.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		8E55BBB52AA9FC12001A088D /* ArkanoidTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ArkanoidTheme.mp3; sourceTree = "<group>"; };
+		8E771A9C2AAB034800D905B5 /* RulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		8EA523BA2AA75E5B00B378A1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB10F1E62A5D9E2C00E1F609 /* CustomClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClass.swift; sourceTree = "<group>"; };
 		EB13336B2A543AB70072F97A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				EB99DF322A3AE9F800D34147 /* GameViewController.swift */,
 				EBEECD5C2A602F0000B58B20 /* RecordsViewController.swift */,
 				EB13336F2A5441450072F97A /* SetupViewController.swift */,
+				8E771A9C2AAB034800D905B5 /* RulesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				EBBCE7C02A5B021C0081571B /* Exstension + UserDefaults.swift in Sources */,
 				EBADF9EB2A73D6CB00C00378 /* Cloud.swift in Sources */,
 				EB99DF932A3B562200D34147 /* Extension + UIView.swift in Sources */,
+				8E771A9D2AAB034800D905B5 /* RulesViewController.swift in Sources */,
 				EBEECD612A6045B400B58B20 /* CustomTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
