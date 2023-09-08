@@ -327,7 +327,7 @@ final class GameViewController: UIViewController {
         customAlert.pauseAlert(self, animation: animator)
     }
     
-    //MARK: - Проверка пересечения истребителя с НЛО
+    //MARK: - Проверка пересечения истребителя с облаками и НЛО
     @objc func ufoIntersects() {
         
         let dynamicUfoFrame = ufoImage.layer.presentation()?.frame
@@ -337,6 +337,17 @@ final class GameViewController: UIViewController {
         for cloud in cloudArrayFrame {
             guard let cloud = cloud else { return }
             if aircraft.frame.intersects(cloud) {
+                // Создаем анимацию мигания
+                        let flashAnimation = CABasicAnimation(keyPath: "opacity")
+                        flashAnimation.duration = 0.2 // Длительность одного мигания
+                        flashAnimation.repeatCount = 2 // Количество миганий (два раза)
+                        flashAnimation.autoreverses = true // Автоматическое восстановление после мигания
+                        flashAnimation.fromValue = 1.0 // Начальная прозрачность (полностью видимый)
+                        flashAnimation.toValue = 0.0 // Конечная прозрачность (полностью невидимый)
+
+                        // Добавляем анимацию к изображению самолета
+                        aircraft.layer.add(flashAnimation, forKey: "flash")
+
                 score += self.cloud.cloudScore
                 scoreCounter.text = String(score)
             }
