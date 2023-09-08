@@ -15,7 +15,7 @@ final class SetupViewController: UIViewController {
         static let buttonWidth: CGFloat = 150
         static let buttonHeight: CGFloat = 50
         static let cornerRadiusButton: CGFloat = 10
-        static let buttonFontSize: CGFloat = 40
+        static let buttonFontSize: CGFloat = 20
     }
     
     private enum SpeedStepperValue {
@@ -271,7 +271,7 @@ final class SetupViewController: UIViewController {
             saveButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             saveButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             saveButton.heightAnchor.constraint(equalToConstant: ButtonSize.buttonHeight),
-            saveButton.widthAnchor.constraint(equalToConstant: ButtonSize.buttonWidth)
+            //saveButton.widthAnchor.constraint(equalToConstant: ButtonSize.buttonWidth)
         ])
     }
 }

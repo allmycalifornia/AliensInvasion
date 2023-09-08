@@ -8,7 +8,10 @@
 import Foundation
 
 enum SizeElement: CGFloat {
-    case labelFont = 30
+    case labelFont = 15
+    case labelTitleFont = 20
+    case sizeEntryButton = 50
+    case sizeSetupButton = 32
 }
 
 enum ImageName: String {
@@ -16,7 +19,7 @@ enum ImageName: String {
     case setupButtonImage = "settings"
     case recordTableImage = "results"
     case rulesImage = "rules"
-    case labelGameStyle = "Papyrus"
+    case labelGameStyle = "Future-Earth"
     case nameGame = "ALIENS INVASION"
     case firstAircraft = "AircraftOne"
     case secondAircraft = "AircraftTwo"
@@ -52,3 +55,5 @@ enum Keys: String {
     case customKey
     case recordKey
 }
+
+

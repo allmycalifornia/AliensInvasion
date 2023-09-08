@@ -8,12 +8,6 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-    
-    private enum SizeElement: CGFloat {
-        case labelFont = 30
-        case sizeEntryButton = 50
-        case sizeSetupButton = 32
-    }
 
     let setupController = SetupViewController()
     let recordViewController = RecordsViewController()
@@ -33,7 +27,7 @@ final class MainViewController: UIViewController {
         var label = UILabel()
         label.text = ImageName.nameGame.rawValue
         label.font = UIFont(name: ImageName.labelGameStyle.rawValue,
-                            size: SizeElement.labelFont.rawValue)
+                            size: SizeElement.labelTitleFont.rawValue)
         label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -42,7 +36,8 @@ final class MainViewController: UIViewController {
     let labelStart: UILabel = {
         var label = UILabel()
         label.text = "Start the game"
-        label.font = UIFont(name: ImageName.labelGameStyle.rawValue, size: 25)
+        label.font = UIFont(name: ImageName.labelGameStyle.rawValue,
+                            size: SizeElement.labelFont.rawValue)
         label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -51,7 +46,8 @@ final class MainViewController: UIViewController {
     let labelSettings: UILabel = {
         var label = UILabel()
         label.text = "Settings"
-        label.font = UIFont(name: ImageName.labelGameStyle.rawValue, size: 25)
+        label.font = UIFont(name: ImageName.labelGameStyle.rawValue,
+                            size: SizeElement.labelFont.rawValue)
         label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -60,7 +56,8 @@ final class MainViewController: UIViewController {
     let labelResults: UILabel = {
         var label = UILabel()
         label.text = "Results table"
-        label.font = UIFont(name: ImageName.labelGameStyle.rawValue, size: 25)
+        label.font = UIFont(name: ImageName.labelGameStyle.rawValue,
+                            size: SizeElement.labelFont.rawValue)
         label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -69,7 +66,8 @@ final class MainViewController: UIViewController {
     let labelRules: UILabel = {
         var label = UILabel()
         label.text = "Rules"
-        label.font = UIFont(name: ImageName.labelGameStyle.rawValue, size: 25)
+        label.font = UIFont(name: ImageName.labelGameStyle.rawValue,
+                            size: SizeElement.labelFont.rawValue)
         label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.isUserInteractionEnabled = true
@@ -159,6 +157,7 @@ final class MainViewController: UIViewController {
         
         let size: CGFloat = 60
         let inset: CGFloat = 8
+        let doubleInset: CGFloat = 16
         
         NSLayoutConstraint.activate([
             
@@ -179,7 +178,7 @@ final class MainViewController: UIViewController {
             labelStart.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             settingsGameButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            settingsGameButton.topAnchor.constraint(equalTo: labelStart.bottomAnchor, constant: inset),
+            settingsGameButton.topAnchor.constraint(equalTo: labelStart.bottomAnchor, constant: doubleInset),
             settingsGameButton.widthAnchor.constraint(equalToConstant: size),
             settingsGameButton.heightAnchor.constraint(equalToConstant: size),
             

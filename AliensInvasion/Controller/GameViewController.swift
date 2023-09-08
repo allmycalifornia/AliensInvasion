@@ -348,6 +348,7 @@ final class GameViewController: UIViewController {
                         // Добавляем анимацию к изображению самолета
                         aircraft.layer.add(flashAnimation, forKey: "flash")
 
+                //score += self.cloud.cloudScore
                 score += self.cloud.cloudScore
                 scoreCounter.text = String(score)
             }

@@ -23,25 +23,13 @@
                                     <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                 </accessibility>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ALIENS INVASION" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RbF-iH-70N">
-                                <rect key="frame" x="40" y="666" width="313" height="52"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="33"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="shadowColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RbF-iH-70N" secondAttribute="bottom" constant="100" id="FyK-g3-9dM"/>
                             <constraint firstItem="wfp-28-Dck" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="HgB-rt-3g1"/>
                             <constraint firstItem="wfp-28-Dck" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OIR-7t-lNv"/>
                             <constraint firstAttribute="bottom" secondItem="wfp-28-Dck" secondAttribute="bottom" id="d1f-jD-qI8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RbF-iH-70N" secondAttribute="trailing" constant="40" id="eCu-lg-JdN"/>
-                            <constraint firstItem="RbF-iH-70N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="gEs-mF-JwP"/>
                             <constraint firstItem="wfp-28-Dck" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="xc8-i3-xN0"/>
                         </constraints>
                     </view>
