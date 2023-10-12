@@ -270,8 +270,7 @@ final class SetupViewController: UIViewController {
             
             saveButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             saveButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            saveButton.heightAnchor.constraint(equalToConstant: ButtonSize.buttonHeight),
-            //saveButton.widthAnchor.constraint(equalToConstant: ButtonSize.buttonWidth)
+            saveButton.heightAnchor.constraint(equalToConstant: ButtonSize.buttonHeight)
         ])
     }
 }

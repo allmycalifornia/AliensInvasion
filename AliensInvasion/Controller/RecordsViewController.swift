@@ -100,8 +100,7 @@ final class RecordsViewController: UIViewController {
 extension RecordsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
-        //recordsArray.count
+        recordsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

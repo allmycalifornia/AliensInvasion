@@ -18,7 +18,7 @@ final class AlertAction {
         let alertController = UIAlertController(title: "GAME OVER!",
                                                 message: "Your score \(score)!",
                                                 preferredStyle: .alert)
-        let alertOkAction = UIAlertAction(title: "Ok",
+        let alertOkAction = UIAlertAction(title: "OК",
                                           style: .default) { _ in
             view.navigationController?.popViewController(animated: true)
             scoreResult = result
